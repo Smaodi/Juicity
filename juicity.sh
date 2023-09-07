@@ -40,9 +40,9 @@ fi
 LATEST_RELEASE_URL=$(curl --silent "https://api.github.com/repos/juicity/juicity/releases" | jq -r '.[0].assets[] | select(.name == "juicity-linux-x86_64.zip") | .browser_download_url')
 
 # Download and extract to /root/juicity
-mkdir -p /root/juicity
-curl -L $LATEST_RELEASE_URL -o /root/juicity/juicity.zip
-unzip -q /root/juicity/juicity.zip -d /root/juicity
+# mkdir -p /root/juicity
+# curl -L $LATEST_RELEASE_URL -o /root/juicity/juicity.zip
+# unzip -q /root/juicity/juicity.zip -d /root/juicity
 
 # Delete all files except juicity-server
 find /root/juicity ! -name 'juicity-server' -type f -exec rm -f {} +
