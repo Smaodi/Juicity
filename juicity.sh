@@ -45,7 +45,7 @@ LATEST_RELEASE_URL=$(curl --silent "https://api.github.com/repos/juicity/juicity
 # unzip -q /root/juicity/juicity.zip -d /root/juicity
 
 # Delete all files except juicity-server
-find /root/juicity ! -name 'juicity-server' -type f -exec rm -f {} +
+ find /root/juicity ! -name 'juicity-server' -type f -exec rm -f {} +
 
 # Set permissions
 chmod +x /root/juicity/juicity-server
@@ -111,24 +111,5 @@ sudo systemctl restart juicity
 # Prompt user for choice
 # read -p "Select an option (1 or 2): 1) Irancell--> IPV6   2) Hamrah-Aval--> IPV4 , Default (1): " choice
 
-
-    2)
-        # Check if Juicity is installed
-        if [[ -f /etc/systemd/system/juicity.service ]]; then
-            # Juicity is installed, perform uninstallation
-            sudo systemctl stop juicity
-            sudo systemctl disable juicity
-            sudo rm /etc/systemd/system/juicity.service
-            sudo systemctl daemon-reload
-            sudo rm -rf /root/juicity
-            sudo systemctl reset-failed
-            echo "Uninstall completed."
-        else
-            # Juicity is not installed
-            echo "Juicity is not installed."
-        fi
-        ;;
-    *)
-        echo "Invalid option selected."
-        ;;
+    ;;
 esac
