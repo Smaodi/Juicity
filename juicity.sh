@@ -12,7 +12,7 @@ print_with_delay() {
 
 # Introduction animation
 echo -e "\n"
-print_with_delay "Welcome To Juicity --->Created by :Peyman --> https://github.com/Ptechgithub" 0.02
+print_with_delay "Welcome To Juicity --->Created by :Smaodi --> https://github.com/Smaodi" 0.02
 echo -e "\n"
 
 # Display options
@@ -114,7 +114,7 @@ read -p "Select an option (1 or 2): 1) Irancell--> IPV6   2) Hamrah-Aval--> IPV4
 case $choice in
     1)
         # Get IPv6 address
-        IPv6_ADDRESS=$(ip -6 addr show dev eth0 | awk '/inet6 .*global/{print $2}' | cut -d '/' -f 1)
+        IPv6_ADDRESS=$(ip -6 addr show dev ens3 | awk '/inet6 .*global/{print $2}' | cut -d '/' -f 1)
 
         # Original share link
         SHARE_LINK_IPV4=$(/root/juicity/./juicity-server generate-sharelink -c /root/juicity/config_server.json)
@@ -141,7 +141,7 @@ case $choice in
         # Default choice
         choice=1
         # Get IPv6 address
-        IPv6_ADDRESS=$(ip -6 addr show dev eth0 | awk '/inet6 .*global/{print $2}' | cut -d '/' -f 1)
+        IPv6_ADDRESS=$(ip -6 addr show dev ens3 | awk '/inet6 .*global/{print $2}' | cut -d '/' -f 1)
 
         # Original share link
         SHARE_LINK_IPV4=$(/root/juicity/./juicity-server generate-sharelink -c /root/juicity/config_server.json)
