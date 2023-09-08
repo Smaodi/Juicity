@@ -27,8 +27,8 @@ read -p "Please select : " option
 case $option in
     1)
  # Install required packages
-sudo apt-get update
-sudo apt-get install -y unzip jq
+# sudo apt-get update
+# sudo apt-get install -y unzip jq
 
 # Detect OS and download the corresponding release
 OS=$(uname -s)
@@ -37,7 +37,7 @@ if [ "$OS" != "Linux" ]; then
     exit 1
 fi
 
-LATEST_RELEASE_URL=$(curl --silent "https://api.github.com/repos/juicity/juicity/releases" | jq -r '.[0].assets[] | select(.name == "juicity-linux-x86_64.zip") | .browser_download_url')
+# LATEST_RELEASE_URL=$(curl --silent "https://api.github.com/repos/juicity/juicity/releases" | jq -r '.[0].assets[] | select(.name == "juicity-linux-x86_64.zip") | .browser_download_url')
 
 # Download and extract to /root/juicity
 # mkdir -p /root/juicity
@@ -105,7 +105,7 @@ EOL
 sudo systemctl daemon-reload
 sudo systemctl enable juicity
 sudo systemctl start juicity
-sudo systemctl restart juicity
+# sudo systemctl restart juicity
 
 
 # Prompt user for choice
